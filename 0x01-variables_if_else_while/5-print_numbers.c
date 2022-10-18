@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - inizialization of to print numbers
+ * main - inizialization of print numbers
  * Return: Always 0
  */
 
