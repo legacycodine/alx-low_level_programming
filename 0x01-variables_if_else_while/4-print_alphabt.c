@@ -1,21 +1,23 @@
 #include <stdio.h>
 
 /**
- * main - prints the alphabet in lower case
- * followed by a new line except q and e
+ * main - Initialization of alphabet code
  * Return: Always 0
  */
+
 int main(void)
 {
-	char la;
+	char lower_alpha = 'a';
+	char lower_alpha_end = 'z';
 
-	for (la = 'a'; la <= 'z'; la++)
+	for (; lower_alpha <= lower_alpha_end; lower_alpha++)
 	{
-		if (la != 'e' && la != 'q';
-			putchar(la);
+		if (lower_alpha == 'q' || lower_alpha == 'e')
+		{
+			continue;
+		}
+		putchar(lower_alpha);
 	}
-
 	putchar('\n');
-
 	return (0);
 }
