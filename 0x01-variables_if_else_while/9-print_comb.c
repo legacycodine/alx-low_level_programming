@@ -4,18 +4,21 @@
  * main - prints all combination of single digits
  * Return: Always 0
  */
+
 int main(void)
 {
-	int n;
+	int digit;
 
-	for (n = 48; n < 58; n++)
+	while (digit < 10)
 	{
-		putchar(n);
-		if (n != 57)
+		putchar(48 + digit);
+		if (digit != 10 - 1)
 		{
 			putchar(',');
 			putchar(' ');
 		}
+		digit++;
+	}
 	putchar('\n');
 	return (0);
 }
