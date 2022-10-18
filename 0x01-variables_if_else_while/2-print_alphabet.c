@@ -4,13 +4,16 @@
  * main - prints alpha in lower case
  * Return: Always 0
  */
+
 int main(void)
 {
-	char lc;
+	char alpha_start = 'a';
+	char alpha_last = 'z';
 
-	for (lc =  'a'; lc <= 'z'; lc++)
+	while (alpha_start <= alpha_last)
 	{
-		putchar(lc);
+		putchar(alpha_start);
+		alpha_start++;
 	}
 	putchar('\n');
 	return (0);
