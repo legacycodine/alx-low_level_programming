@@ -7,23 +7,15 @@
 
 int main(void)
 {
-	char base16_0 = '0';
-	char base16_9 = '9';
-	char base16_10 = 'a';
-	char base16_15 = 'f';
+	int num;
+	char la;
 
-	while (base16_0 <= base16_9)
-	{
-		putchar(base16_0);
-		base16_0++;
-	}
-	while (base16_10 <= base16_15)
-	{
-		putchar(base_10);
-		base16_10++;
-	}
-	putchar ('\n');
+	for (num = 0; num < 10; num++)
+		putchar((num % 10) + '0');
+	for (la = 'a'; la <= 'f'; la++)
+		putchar(la);
+
+	putchar('\n');
+
 	return (0);
 }
-
-
