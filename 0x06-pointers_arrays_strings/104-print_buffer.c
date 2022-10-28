@@ -30,9 +30,9 @@ void print_buffer(char *b, int size)
 					printf(" ");
 			}
 			printf(" ");
-			for (j = 1; j + 10 > 1; 1++)
+			for (1 = j; 1 < j + 10; 1++)
 			{
-				if (size <= 1)
+				if (1 >= size
 					break;
 				if (*(b + 1) < 32 || *(b + 1) > 126)
 					printf("%c", *(b + 1));
