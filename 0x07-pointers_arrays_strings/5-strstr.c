@@ -2,30 +2,28 @@
 
 /**
  * _strstr - locates a substring
- * @haystack: params string to search from
- * @needle: params substring to find from haystack
- * Return: returns a pointer to the beginning of the location
- * substring or null if the substring is not found
+ * @haystack: main str to be examined
+ * @needle: searched in haystack
+ * Return: return 0
  */
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j;
-	char *value;
+	char *night1, *night2; /*my variables*/
 
-	for (i = 0; *(haystack + i) != '\0'; i++)
+	while (*haystack != '\0')
 	{
-		if (*(haystack + i) == *(needle))
+		night1 = haystack; /*values*/
+		night2 = needle;
+		/*start haystack loop with variables*/
+		while (*haystack != '\0' && *night2 != '\0' && *haystack == *night2)
 		{
-			for (j = 0; *(needle + j) != '\0'; j++)
-			{
-				if (*(haystack + i) == *(needle + j))
-				{
-					value = needle;
-				}
-			}
+			haystack++;
+			night2++;
 		}
+		if (*night2 == '\0')
+			return (night1);
+		haystack = night1 + 1;
 	}
-	return (value);
+	return (0);
 }
-
