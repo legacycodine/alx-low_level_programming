@@ -10,11 +10,13 @@
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	int night = 0; /*night is my variable and was assigned 0*/
 
-	for (i = 0; i < n; i++)
+	while (n > 0) /*as long as n is less than 0*/
 	{
-		*(s + i) = b;
+		s[night] = b; /*night is assigned to our char*/
+		night++; /*post-increment, value first increment*/
+		n--; /*post-decrement*/
 	}
-	return (s);
+	return (s); /*returning pointer to the memory of s*/
 }
