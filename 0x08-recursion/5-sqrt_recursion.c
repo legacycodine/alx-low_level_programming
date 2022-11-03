@@ -1,33 +1,37 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - return the natural square root of a number
- * @n: int number
- * Return: If no natural square root, return -1. Else return natural
- * square root
+ * factor - find factor of n
+ * @n: passed in number to check for square root
+ * @f: incrementing number which is checked against n
+ * Return: moving f through the function until other returns
+ * are true
+ */
+
+int factor(int n, int f)
+{
+	if ((f * f) == n)
+		return (f);
+
+	if (f > (n / f))
+		return (-1);
+
+	return (factor(n, (f + 1)));
+}
+
+/**
+ * _sqrt_recursion - find square root through recursion
+ * @n: number to check for square root
+ * Return: pass n and 1 into factor function, unless n is negative,
+ * 0 or 1
  */
 
 int _sqrt_recursion(int n)
 {
-	return (halp(n, 1));
-}
 
-/**
- * halp - helper function to solve _sqrt_recursion
- * @c: number to determine if square root
- * @i: incrementer to compare against c
- * Return: square root if natural square root, or -1 if none found
- */
-
-int halp(int c, int i)
-{
-	int square;
-
-	square = i * i;
-	if (square == c)
-		return (i);
-	else if (square < c)
-		return (halp(c, i + 1));
-	else
+	if (n <= 0)
 		return (-1);
+	if (n == 1)
+		return (1);
+	return (factor(n, 1));
 }
