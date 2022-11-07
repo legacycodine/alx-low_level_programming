@@ -9,62 +9,34 @@
  * Return: returns a pointer to the concatenated string
  */
 
-int get_size(int ac, char **av);
-
 char *argstostr(int ac, char **av)
 {
-	char *new_str;
-	int i, j, k, size;
+	char *a, *retp;
+	int i, j, total;
 
-	size = get_size(ac, av);
-	new_str = malloc(sizeof(char) * 100);
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	if (new_str == NULL)
-		return (NULL);
-
-	j = 0;
-	k = 0;
-	for (i = 0; i < size; i++)
+	for (i = 0, total = 0; i < ac; i++)
 	{
-		if (av[k][j] != '\0')
-		{
-			new_str[i] = av[k][j];
-			j++;
-		}
-		else
-		{
-			new_str[i] = '\n';
-			j = 0;
-			k++;
-		}
+		for (j = 0; *(*(av + i) + j) != '\0'; j++, total++)
+			;
+		total++;
 	}
-/*      printf("%s\n", new_str);*/
-	return (new_str);
-}
+	total++;
 
-/**
- * get_size - get the size of av
- * @ac: the size of av
- * @av: the array from the command line
- * Return: return the size of av
- */
-
-int get_size(int ac, char **av)
-{
-	int i, j, size;
-
-	size = 0;
+	a = malloc(total * sizeof(char));
+	if (a == NULL)
+		return (NULL);
+	retp = a;
 	for (i = 0; i < ac; i++)
 	{
-		j = 0;
-		while (av[i][j] != '\0')
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
-			size++;
-			j++;
+			*a = av[i][j];
+			a++;
 		}
-		size++;
+		*a = '\n';
+		a++;
 	}
-	return (size);
+	return (retp);
 }
