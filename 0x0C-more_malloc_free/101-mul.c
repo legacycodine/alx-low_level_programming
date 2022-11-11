@@ -1,7 +1,7 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
+int convert_to_int(char num[]);
 /**
   * main - multiplies two positive numbers
   * @argc: n arguments
@@ -11,26 +11,55 @@
 
 int main(int argc, char *argv[])
 {
-	unsigmed long mul;
-	int i, j;
+	unsigned long mul;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{
-				printf("Error\n");
-				exit(98);
-			}
-		}
-	}
-	mul = atol(argv[1] * atol(argv[2]);
+	mul = convert_to_int(argv[1]) * convert_to_int(argv[2]);
 	printf("%lu\n", mul);
+
 	return (0);
 }
+/**
+  * get_size - getting the size of each num in char type
+  * in the array, argv
+  * @num: numbers in char stored in an array char
+  * Return: return int
+  */
+
+int get_size(char num[])
+{
+	int size;
+
+	size = 0;
+	while (num[size] != '\n')
+		size++;
+
+	return (size);
+}
+
+/**
+  * convert_to_int - convert value from array char, string to
+  * integer
+  * @num: number stored in an array char, string
+  * Return: return the converted num
+  */
+
+int convert_to_int(char num[])
+{
+	int i, tmp, size_char;
+	unsigned long converted_num;
+
+	converted_num = 0;
+	size_char = get_size(num);
+	for (i = 0; i < size_char; i++)
+	{
+		tmp = ((int)num[i] - 48;
+		converted_num *= 10;
+		converted_num += tmp;
+	}
+	return (converted_num);
+	}
